@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="admin.html">Home</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="my_promotion.html">My Promotion</a></li>
+                <li class="has-submenu">
+                    <a href="#">User <span class="arrow">&#9654;</span></a>
+                    <ul class="submenu" style="padding: 0px;
+                    display: block;
+                    background: #05121a;
+                    border-radius: 5px;">
+                        <li><a href="all_member_list.html">All Member List</a></li>
+                        <li><a href="memebr_credentials.html">Member Credentials</a></li>
+                        <li><a href="members_subordinate_data.html">Members Subordinate Data</a></li>
+                        <li><a href="members_betting_record.html">Members Betting Record</a></li>
+                        <li><a href="subordinate_betting_record.html">Subordinate Betting Record</a></li>
+                        <li><a href="lottery_record.html">Lottery Game Record</a></li>
+                        <li><a href="color_trading_record.html">Color Trading Game Record</a></li>
+                        <li><a href="big_small_record.html">Big Small Game Record</a></li>
+                        <li><a href="plinko_record.html">Plinko Game Record</a></li>
+                        <li><a href="mines_record.html">Mines Game Record</a></li>
+                        <li><a href="funding_record.html">Funding Records</a></li>
+                        <li><a href="recharge_list.html">Recharge List</a></li>
+                        <li><a href="withdrawal_list.html">Withdrawal List</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#">Finance <span class="arrow">&#9654;</span></a>
+                    <ul class="submenu" style="padding: 0px;
+                    display: block;
+                    background: #05121a;
+                    border-radius: 5px;">
+                        <li><a href="bank_manage.html">Bank Management</a></li>
+                        <li><a href="user_bank.html">User Bank Change</a></li>
+                        <li><a href="recharge.html">Recharge Approvals</a></li>
+                        <li><a href="withdraw.html">Withdraw Approvals</a></li>
+                        <li><a href="turnover.html">Turnover Management</a></li>
+                        <li><a href="bonus_rewards.html">Bonus & Rewards</a></li>
+                        <li><a href="gift_code.html">Gift Code Management</a></li>
+                    </ul>
+                </li>
+                <li><a href="game_control.html">Games Management</a></li>
+                <li><a href="ip.html">IP Checkup</a></li>
+                <li><a href="inapp_offer.html">In-app Offer Popups</a></li>
+                <li><a href="notifications.html">Notification & Alerts</a></li>
+                <li><a href="banners_control.html">Banners Management</a></li>
+                <li class="has-submenu">
+                    <a href="#">Settings <span class="arrow">&#9654;</span></a>
+                    <ul class="submenu" style="padding: 0px;
+                    display: block;
+                    background: #05121a;
+                    border-radius: 5px;">
+                        <li><a href="personal_info.html">Personal Information</a></li>
+                        <li><a href="appearance.html">Appearance</a></li>
+                        <li><a href="securtiy.html">Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="top-bar">
+                    <div id="timeDate"></div>
+                    <div class="profile" href="personal_info.html">
+                        <a href="personal_information.html">
+                            <img src="user.png" alt="Profile Icon" class="profile-icon">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <section class="partner-section">
+                <div class="partner-container">
+                    <div class="partner-list" style="border-right: 1px solid white;">
+                        <h2>Partner List</h2>
+                        <div class="table-contain">
+                            <p id="noPartnersMessage">No sub-admin is created yet.</p>
+                            <table id="partnerTable" style="height: 0;">
+                                <thead>
+                                    <tr>
+                                        <th>Partner ID</th>
+                                        <th>Members</th>
+                                        <th>Deposits</th>
+                                        <th>Withdrawals</th>
+                                        <th>Active Members</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="partnerTableBody">
+                                    <!-- Rows will be added dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="create-partner">
+                        <h2>Create New Partner</h2>
+                        <form id="createPartnerForm">
+                            <div class="form-group">
+                                <label for="partnerID">Partner ID</label>
+                                <input type="text" id="partnerID" placeholder="Enter New ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="partnerPassword">Password</label>
+                                <input type="password" id="partnerPassword" placeholder="Create Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="partnerRole">Role Name</label>
+                                <input type="text" id="partnerRole" placeholder="Enter Role Name">
+                            </div>
+                            <div id="featureSection">
+                                <label for="featureSelect">Select Features:</label>
+                                <select id="featureSelect">
+                                    <option value="feature1">Feature 1</option>
+                                    <option value="feature2">Feature 2</option>
+                                    <option value="feature3">Feature 3</option>
+                                    <option value="feature4">Feature 4</option>
+                                    <option value="feature5">Feature 5</option>
+                                </select>
+                            </div>
+                            <button type="button" id="createPartnerBtn">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
