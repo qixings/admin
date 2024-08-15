@@ -1,3 +1,4 @@
+/* Common Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -39,19 +40,15 @@ body {
     transition: background-color 0.3s ease;
 }
 
-
-/* admin.css */
-
 .sidebar a.active {
     background-color: #0aff8016; /* Change this color as needed */
     color: white;
     border-radius: 3px;
 }
 
-
 .sidebar a:hover {
     background-color: #008db4;
-    border-radius: 3px ;
+    border-radius: 3px;
 }
 
 .arrow {
@@ -66,6 +63,9 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+    background: #05121a;
+    border-radius: 5px;
+    padding: 0;
 }
 
 .submenu li {
@@ -75,7 +75,6 @@ body {
 .sidebar li.active > .submenu {
     display: block;
 }
-
 
 /* Ensure the submenu remains open if it contains an active link */
 .submenu li a.active {
@@ -88,9 +87,6 @@ body {
     max-height: 500px; /* Adjust this value as needed */
 }
 
-
-
-
 .main-content {
     flex-grow: 1;
     box-sizing: border-box;
@@ -101,7 +97,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     flex-direction: column;
 }
 
@@ -177,10 +173,13 @@ header {
     width: 50%;
     height: 50vh;
     font-size: 10px;
+    text-align: left;
 }
 
 .info h2 {
-    margin-top: 0;
+    margin-top: 9px;
+    color: #00ff99;
+    margin-bottom: 2px;
 }
 
 .transactions,
@@ -216,13 +215,6 @@ header {
     scrollbar-width: none;  /* Firefox */
 }
 
-.top-bar {
-    width: 100%;
-    background-color: black;
-    height: 52px;
-    margin-bottom: 20px;
-}
-
 
 /* Profile icon */
 .profile {
@@ -248,182 +240,39 @@ header {
     color: white;
     font-size: 12px;
     gap: 20px;
-}
-
-
-
-/* partner page*/
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
-.search-container input[type="text"] {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px;
-    width: 200px;
-}
-
-.search-container button {
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: #0056b3;
-}
-
-.main-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.partner-list, .create-partner {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.partner-list h2{
-    margin: 0;
-    margin-left: -327px;
-    margin-bottom: 5px;
-    font-size: 16px
-}
-
-
-.create-partner h2{
-    margin: 0;
-    margin-left: -274px;
-    margin-bottom: 5px;
-    font-size: 16px
-}
-
-.partner-container{
-
-    width: 85%;
-    background-color: #0e202a;
-    display: flex;
-    border-radius: 10px;
-    padding: 30px;
-    justify-content: center;
-}
-
-.partner-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.partner-list table {
     width: 100%;
-    border-collapse: collapse;
+    background-color: black;
+    height: 52px;
+    margin-bottom: 20px;
+    
 }
 
-.partner-list th, .partner-list td {
-    padding: 10px;
+.data1, .data2, .data3 {
     text-align: center;
 }
 
-.partner-list th {
-    background:transparent;
-}
-
-.partner-list td {
-    border-bottom: none;
-}
-
-.create-partner input[type="text"], .create-partner input[type="password"] {
-    width: 140%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 4px;
-}
-
-.create-partner button {
-    width: 20%;
-    padding: 10px;
-    background: linear-gradient(185deg, #7000ff, #1d2479);
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.create-partner button:hover {
-    background-color: #3700b3;
-}
-
-
-#createPartnerForm{
-    background: #0f161c;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+th {
     font-size: 12px;
-    padding: 20px;
-    border-radius: 8px;
-    height:80%;
-
+    margin-right: -10px;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-}
-.table-contain{
-    display: flex;
-    justify-content: center;
-    background: #0f161c;
-    border-radius: 8px;
-    width: 400px;
-    padding: 20px;
-    font-size: 10px;
-    height: 80%;
-    overflow-y: auto; /* Enable vertical scrolling */
+td {
+    color: rgb(255, 255, 255);
 }
 
-.members{
-    color: rgb(0, 187, 255);
-}
-.deposits{
-    color: yellowgreen;
+.data1 {
+    color: greenyellow;
 }
 
-.withdrawals{
-    color: yellow;
-}
-
-.activemembers{
+.data2 {
     color: orange;
 }
 
-
-#featureSelect {
-    appearance: none;
-    background-color: #6b9800;
-    color: #fff;
-    border: none;
-    height: 35px;
-    border-radius: 4px;
-    width: 100%;
-    text-align: center;
+.data3 {
+    color: skyblue;
 }
 
-#featureSection{
-    margin-bottom: 10px;
-    width: 69%;
+a {
+    text-decoration: none;
+    color: #00eeff;
 }
-
-

@@ -1,0 +1,186 @@
+/* Container for the whole member information section */
+.member-info-container {
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column; /* Organizing in a column for overall structure */
+    gap: 20px; /* Space between elements */
+}
+
+/* Search and button sections */
+.info-box {
+    color: white;
+    border-radius: 5px;
+    background-color: #10262d;
+}
+
+.search-section{
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+/* Input and buttons within the search section */
+.search-section input[type="text"], .search-section button {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 7px;
+    border: none;
+    font-size: 12px;
+}
+
+.search-section button{
+    background:linear-gradient(199deg, #c840ff, #4040ff) ;
+    color: white;
+    margin-left: -5px;
+
+}
+/* Basic table styling for uniformity */
+.info-box table {
+    width: 100%; /* Ensures table uses full container width */
+    border-collapse: collapse; /* Removes space between borders */
+    height: 100%; /* Ensures tables use full container height */
+    display: table; /* Default but ensures it behaves as a table */
+    font-size: 10px;
+}
+
+/* Styling for table headers and cells */
+table th, table td {
+    border: 1px solid #ffffff;
+    vertical-align: middle;
+    width: 100px;
+    height: 32px;
+    font-size: 10px;
+}
+
+/* Ban user button styles */
+#banUserButton {
+    background: rgb(244, 0, 0);
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center; /* Centers button in the available space */
+}
+
+/* Styles for the search section */
+.member-search {
+    display: flex;
+    font-size: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}
+
+/* Container for all details tables to ensure horizontal layout */
+.member-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+/* Ensuring tables have uniform size */
+.info-box {
+    flex: 1; /* Each box will take an equal share of the space */
+    display: flex;
+    flex-direction: column;
+ 
+    width: 403px;
+}
+
+table td{
+    padding-left: 10px;
+
+}
+
+h3{
+    font-size: 12px;
+    border: 1px solid white;
+    border-bottom: none;
+    margin-bottom: 0;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 0;
+    color: #00ff99;
+
+}
+
+.subordinate-list h3{
+    border: none;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+
+
+}
+.subordinate-list{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #0f161c;
+    border-radius: 7px;
+    height: 435px;
+}
+
+.member-subordinate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #0e202a;
+    width: 95%;
+    padding: 20px;
+    border-radius: 7px;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    height: 90vh;
+}
+
+#subordinatesTable th{
+    border: none;
+}
+
+
+.pagination-controls select {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #ff0059;
+    color: white;
+    border: none;
+    font-size: 12px;
+}
+.pagination-controls{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 17px
+}
+
+
+.header-title{
+    border-bottom: 1px solid white;
+    font-size: 12px;
+    width: 98%;
+    height: 39px;
+}
+/* Adjustments for responsive design */
+@media (max-width: 768px) {
+    .member-details {
+        flex-direction: column; /* Stack tables vertically on smaller screens */
+    }
+}

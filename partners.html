@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link rel="stylesheet" href="partner.css">
     <link rel="stylesheet" href="admin.css">
+
 </head>
 
 <body>
     <div class="container">
         <aside class="sidebar">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html">Home</a></li>
                 <li><a href="partners.html">Partners</a></li>
                 <li><a href="my_promotion.html">My Promotion</a></li>
                 <li class="has-submenu">
@@ -104,6 +106,25 @@
                             </table>
                         </div>
                     </div>
+
+
+                    <!-- Partner Details Modal -->
+                    <div id="partnerDetailsModal" class="modal" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Partner Details</h2>
+                            <p><strong>Partner ID:</strong> <span id="modalPartnerID"></span></p>
+                            <p><strong>Password:</strong> <span id="modalPartnerPassword"></span></p>
+                            <p><strong>Role:</strong> <span id="modalPartnerRole"></span></p>
+                            <p><strong>Members:</strong> <span id="modalMembers"></span></p>
+                            <p><strong>Deposits:</strong> <span id="modalDeposits"></span></p>
+                            <p><strong>Withdrawals:</strong> <span id="modalWithdrawals"></span></p>
+                            <p><strong>Active Members:</strong> <span id="modalActiveMembers"></span></p>
+                            <p><strong>Assigned Roles:</strong> <span id="modalAssignedRoles"></span></p>
+                            <p><strong>Assigned Features:</strong> <span id="modalAssignedFeatures"></span></p>
+                        </div>
+                    </div>
+
                     <div class="create-partner">
                         <h2>Create New Partner</h2>
                         <form id="createPartnerForm">
@@ -119,14 +140,11 @@
                                 <label for="partnerRole">Role Name</label>
                                 <input type="text" id="partnerRole" placeholder="Enter Role Name">
                             </div>
+                            <!-- Updated feature section in the HTML -->
                             <div id="featureSection">
                                 <label for="featureSelect">Select Features:</label>
                                 <select id="featureSelect">
-                                    <option value="feature1">Feature 1</option>
-                                    <option value="feature2">Feature 2</option>
-                                    <option value="feature3">Feature 3</option>
-                                    <option value="feature4">Feature 4</option>
-                                    <option value="feature5">Feature 5</option>
+                                    <!-- Options will be added dynamically -->
                                 </select>
                             </div>
                             <button type="button" id="createPartnerBtn">Create</button>
@@ -134,10 +152,239 @@
                     </div>
                 </div>
             </section>
+
+
+            <section class="feature-creation">
+
+                <div class="feature-creation-container">
+
+                    <h2>Create New Feature</h2>
+
+                    <div class="all-features">
+
+                        <div class="feature-list">
+
+
+                            <label class="ft-container">Home
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Partners
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">My Promotion
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">User
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">All Member List
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Member Credentials
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Members Subordinate Data
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Members Betting Record
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Subordinate Betting Record
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Lottery Game Record
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Color Trading Game Record
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Big Small Game Record
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Plinko Game Record
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Mines Game Record
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Funding Records
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Recharge List
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Withdrawal List
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Finance
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Bank Management
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">User Bank Change
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Recharge Approvals
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Withdraw Approvals
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Turnover Management
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Bonus & Rewards
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Gift Code Management
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Games Management
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">IP Checkup
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">In-app Offer Popups
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Notification & Alerts
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Banners Management
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Settings
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Personal Information
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Appearance
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Security
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="ft-container">Logout
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="create-feature">
+                        <div class="form-group">
+                            <label for="featureName">Feature Name</label>
+                            <input type="text" id="featureName" placeholder="Enter Feature Name">
+                        </div>
+                        <button type="button" id="createFeatureBtn">Create Feature</button>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="partner-activity">
+                <div class="activity-container">
+                    <h2>Partner Activity Log</h2>
+                    <table id="activityTable">
+                        <thead>
+                            <tr>
+                                <th>Partner ID</th>
+                                <th>Login Time</th>
+                                <th>Logout Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityTableBody">
+                            <!-- Rows will be added dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+
+
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="admin.js"></script>
+    <script src="partner.js"></script>
 </body>
 
 </html>

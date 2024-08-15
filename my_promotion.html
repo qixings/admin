@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="promotion.css">
 </head>
 
 <body>
     <div class="container">
         <aside class="sidebar">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html">Home</a></li>
                 <li><a href="partners.html">Partners</a></li>
                 <li><a href="my_promotion.html">My Promotion</a></li>
                 <li class="has-submenu">
@@ -82,11 +83,100 @@
                 </div>
             </header>
 
-            <div style="text-align: center;"><h2>The page is Under Maintenence</h2></div>
+            <section class="promotion">
+
+                <div class="invitation-link">
+                    <label for="link">My Invitation Link:</label>
+                    <input type="text" id="link" value="https://platformname.com/#/register?invitationcode=3333540"
+                        readonly>
+                    <button onclick="copyToClipboard()">Copy</button>
+                </div>
+
+
+                <div class="data-section">
+                    <div class="member-search">
+                        <div>
+                            <label for="memberID">Search Members</label>
+                            <input type="text" id="memberId" placeholder="Enter Member ID">
+                            <button onclick="searchMember()">Search</button>
+                        </div>
+                        <div class="date-buttons">
+                            <label for="searchDate">Date</label>
+                            <input type="date" id="searchDate">
+                            <button onclick="loadToday()">Today</button>
+                            <button onclick="loadPrevious()">Previous</button>
+                            <button onclick="loadNext()">Next</button>
+                            <button onclick="loadAll()">All</button>
+                        </div>
+                    </div>
+                    <div class="member-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Member ID</th>
+                                    <th>Superior ID</th>
+                                    <th>Relative Level</th>
+                                    <th>Subordinates</th>
+                                    <th>Bank A/C</th>
+                                    <th>Deposit</th>
+                                    <th>Withdrawals</th>
+                                    <th>Balance</th>
+                                    <th>Last Login</th>
+                                    <th>Joining Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="memberData">
+                                <!-- Data will be loaded here via JavaScript -->
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                    <div class="pagination-controls">
+                        <span id="rowInfo"></span>
+                        <select id="rowsPerPage" onchange="changeRowsPerPage()">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="all">All</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+
+            </section>
+
+            <!-- Detailed Member Modal -->
+<div id="memberDetailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Agent User Detailed Data</h2>
+        <div class="modal-body">
+            <!-- Example section for account details -->
+            <div class="modal-section">
+                <h3>Account</h3>
+                <p>Member ID: <span id="detailMemberID"></span></p>
+                <p>User Balance: <span id="detailUserBalance"></span></p>
+                <p>Accumulated Recharge: <span id="detailAccumulatedRecharge"></span></p>
+                <!-- Add more fields as needed -->
+            </div>
+            <!-- Repeat for other sections like VIP, Withdraw, Proxy data, etc. -->
+        </div>
+    </div>
+</div>
+
+
+
+
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="admin.js"></script>
+    <script src="promotion.js"></script>
 </body>
 
 </html>

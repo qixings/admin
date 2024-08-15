@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="admin.html">Home</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="my_promotion.html">My Promotion</a></li>
+                <li class="has-submenu">
+                    <a href="#">User <span class="arrow">&#9654;</span></a>
+                    <ul class="submenu" style="padding: 0px;
+                    display: block;
+                    background: #05121a;
+                    border-radius: 5px;">
+                        <li><a href="all_member_list.html">All Member List</a></li>
+                        <li><a href="memebr_credentials.html">Member Credentials</a></li>
+                        <li><a href="members_subordinate_data.html">Members Subordinate Data</a></li>
+                        <li><a href="members_betting_record.html">Members Betting Record</a></li>
+                        <li><a href="subordinate_betting_record.html">Subordinate Betting Record</a></li>
+                        <li><a href="lottery_record.html">Lottery Game Record</a></li>
+                        <li><a href="color_trading_record.html">Color Trading Game Record</a></li>
+                        <li><a href="big_small_record.html">Big Small Game Record</a></li>
+                        <li><a href="plinko_record.html">Plinko Game Record</a></li>
+                        <li><a href="mines_record.html">Mines Game Record</a></li>
+                        <li><a href="funding_record.html">Funding Records</a></li>
+                        <li><a href="recharge_list.html">Recharge List</a></li>
+                        <li><a href="withdrawal_list.html">Withdrawal List</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#">Finance <span class="arrow">&#9654;</span></a>
+                    <ul class="submenu" style="padding: 0px;
+                    display: block;
+                    background: #05121a;
+                    border-radius: 5px;">
+                        <li><a href="bank_manage.html">Bank Management</a></li>
+                        <li><a href="user_bank.html">User Bank Change</a></li>
+                        <li><a href="recharge.html">Recharge Approvals</a></li>
+                        <li><a href="withdraw.html">Withdraw Approvals</a></li>
+                        <li><a href="turnover.html">Turnover Management</a></li>
+                        <li><a href="bonus_rewards.html">Bonus & Rewards</a></li>
+                        <li><a href="gift_code.html">Gift Code Management</a></li>
+                    </ul>
+                </li>
+                <li><a href="game_control.html">Games Management</a></li>
+                <li><a href="ip.html">IP Checkup</a></li>
+                <li><a href="inapp_offer.html">In-app Offer Popups</a></li>
+                <li><a href="notifications.html">Notification & Alerts</a></li>
+                <li><a href="banners_control.html">Banners Management</a></li>
+                <li class="has-submenu">
+                    <a href="#">Settings <span class="arrow">&#9654;</span></a>
+                    <ul class="submenu" style="padding: 0px;
+                    display: block;
+                    background: #05121a;
+                    border-radius: 5px;">
+                        <li><a href="personal_info.html">Personal Information</a></li>
+                        <li><a href="appearance.html">Appearance</a></li>
+                        <li><a href="securtiy.html">Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="top-bar">
+                    <div id="timeDate"></div>
+                    <div class="profile" href="personal_info.html">
+                        <a href="personal_information.html">
+                            <img src="user.png" alt="Profile Icon" class="profile-icon">
+                        </a>
+                    </div>
+
+                </div>
+                <div class="date-picker">
+                    <label for="date">Date</label>
+                    <input type="date" id="date">
+                    <label for="date" style="    margin-left: 149px;">From</label>
+                    <input type="date" id="from">
+                    <label for="date">To</label>
+                    <input type="date" id="to">
+                </div>
+                <div class="stats" style="    margin-top: 26px; ">
+                    <div class="stat-item" style="background:#108f00 ;">
+                        <span>DEPOSITS</span>
+                        <span class="amount">₹567932.50</span>
+                    </div>
+                    <div class="stat-item"  style="background:#c10300 ;">
+                        <span>WITHDRAWALS</span>
+                        <span class="amount">₹367932.50</span>
+                    </div>
+                    <div class="stat-item" style="background:#2b5cb8 ;">
+                        <span>MEMBERS</span>
+                        <span class="amount">10679</span>
+                    </div>
+                    <div class="stat-item" style="background:#ff4e00 ;">
+                        <span>PENDING DEPOSITS</span>
+                        <span class="amount">106</span>
+                    </div>
+                    <div class="stat-item" style="background:#0f1b24 ;">
+                        <span>PENDING WITHDRAWALS</span>
+                        <span class="amount">92</span>
+                    </div>
+                </div>
+            </header>
+            <section class="controls">
+                <button>Previous</button>
+                <button>Next</button>
+                <button>Today</button>
+                <button>Weekly</button>
+                <button>Monthly</button>
+            </section>
+            <div style="display: flex;">
+            <section class="chart">
+                <canvas id="chart"></canvas>
+            </section>
+
+
+<section class="info">
+    <div>
+        <!-- Transactions Section -->
+        <div class="transactions">
+            <h2>Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Amount</th>
+                        <th>Times</th>
+                        <th>People</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1st Deposit</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>2nd Deposit</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>3rd Deposit</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>1st Withdrawals</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Transaction Status Section -->
+        <div class="transaction-status">
+            <h2>Transaction Status</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Amount</th>
+                        <th>Times</th>
+                        <th>People</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Recharge Pending</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Recharge Failed</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Recharge Successful</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Withdrawals Pending</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Withdrawals Failed</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Withdrawals Successful</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Server Wise Deposits Section -->
+        <div class="server-deposits">
+            <h2>Server Wise Deposits</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Server</th>
+                        <th>Amount</th>
+                        <th>Times</th>
+                        <th>People</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Server 1</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Server 2</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Server 3</td>
+                        <td class="data1">--</td>
+                        <td class="data2">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <!-- User Info Section -->
+        <div class="user-info">
+            <h2>User Info</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Data</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>New Users</td>
+                        <td class="data1">--</td>
+                        <td><a href="#">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Android Users</td>
+                        <td class="data2">--</td>
+                        <td><a href="#">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>IOS Users</td>
+                        <td class="data3">--</td>
+                        <td><a href="#">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>PC Users</td>
+                        <td class="data1">--</td>
+                        <td><a href="#">Details</a></td>
+                    </tr>
+                    <tr>
+                        <td>Bank Binded Users</td>
+                        <td class="data2">--</td>
+                        <td><a href="#">Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Game Info Section -->
+        <div class="game-info">
+            <h2>Game Info</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Amount</th>
+                        <th>People</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lottery</td>
+                        <td class="data1">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Color Trading</td>
+                        <td class="data1">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Big Small</td>
+                        <td class="data1">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Plinko</td>
+                        <td class="data1">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                    <tr>
+                        <td>Mines</td>
+                        <td class="data1">--</td>
+                        <td class="data3">--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+        </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

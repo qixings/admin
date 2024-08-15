@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.submenu').forEach(menu => {
                 if (menu !== submenu) {
                     menu.style.maxHeight = null;
+                    menu.parentElement.classList.remove('active');
                 }
             });
 
@@ -73,9 +74,53 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTime, 1000);
     updateTime();
 
+    // Fetch data from the API and update UI
+    async function fetchData() {
+        try {
+            const transactionsResponse = await fetch('/api/transactions');
+            const transactionsData = await transactionsResponse.json();
+            updateTransactionsTable(transactionsData);
+
+            const statsResponse = await fetch('/api/stats');
+            const statsData = await statsResponse.json();
+            updateStats(statsData);
+
+            // Similarly, fetch other data as needed
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    // Update Transactions Table
+    function updateTransactionsTable(data) {
+        // Example: update table cells with dynamic data
+        const transactionRows = document.querySelectorAll('.transactions tbody tr');
+        transactionRows.forEach((row, index) => {
+            const cells = row.querySelectorAll('td');
+            cells[1].textContent = data[index].amount || '--';
+            cells[2].textContent = data[index].times || '--';
+            cells[3].textContent = data[index].people || '--';
+        });
+    }
+
+    // Update Stats
+    function updateStats(data) {
+        // Example: update stats
+        const statItems = document.querySelectorAll('.stats .stat-item');
+        statItems[0].querySelector('.amount').textContent = `₹${data.deposits}`;
+        statItems[1].querySelector('.amount').textContent = `₹${data.withdrawals}`;
+        statItems[2].querySelector('.amount').textContent = data.members;
+        statItems[3].querySelector('.amount').textContent = data.pendingDeposits;
+        statItems[4].querySelector('.amount').textContent = data.pendingWithdrawals;
+    }
+
+    // Fetch initial data
+    fetchData();
+
     // Chart configuration
-    const ctx = document.getElementById('chart') ? document.getElementById('chart').getContext('2d') : null;
-    if (ctx) {
+    const chartElement = document.getElementById('chart');
+    if (chartElement) {
+        const ctx = chartElement.getContext('2d');
         const chart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -123,66 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
-        });
-    }
-
-    const partnerTable = document.getElementById('partnerTable');
-    const partnerTableBody = document.getElementById('partnerTableBody');
-    const noPartnersMessage = document.getElementById('noPartnersMessage');
-
-    // Handle form submission for creating a new partner
-    document.getElementById('createPartnerBtn').addEventListener('click', () => {
-        const partnerID = document.getElementById('partnerID').value;
-        const partnerPassword = document.getElementById('partnerPassword').value;
-        const partnerRole = document.getElementById('partnerRole').value;
-        const featureSelect = document.getElementById('featureSelect');
-        const selectedFeatures = Array.from(featureSelect.selectedOptions).map(option => option.value);
-
-        // Perform validation and creation logic here
-        if (partnerID && partnerPassword && partnerRole) {
-            console.log('Creating new partner:', {
-                partnerID,
-                partnerPassword,
-                partnerRole,
-                selectedFeatures
-            });
-
-            // Add the new partner to the table
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>${partnerID}</td>
-                <td class="members">--</td>
-                <td class="deposits">--</td>
-                <td class="withdrawals">--</td>
-                <td class="activemembers">--</td>
-            `;
-            partnerTableBody.appendChild(newRow);
-
-            // Show the table if it's currently hidden
-            if (partnerTable.style.display === 'none') {
-                partnerTable.style.display = 'table';
-                noPartnersMessage.style.display = 'none';
-            }
-
-            // Reset the form
-            document.getElementById('createPartnerForm').reset();
-        } else {
-            alert('Please fill all fields.');
-        }
-    });
-
-    // Example code to populate partner list (replace with real data fetching)
-    const partnerData = []; // Start with an empty array
-    if (partnerData.length === 0) {
-        partnerTable.style.display = 'none';
-        noPartnersMessage.style.display = 'block';
-    } else {
-        partnerTable.style.display = 'table';
-        noPartnersMessage.style.display = 'none';
-        partnerData.forEach(partner => {
-            const row = document.createElement('tr');
-            row.innerHTML = `<td>${partner.id}</td><td>${partner.members}</td><td>${partner.deposits}</td><td>${partner.withdrawals}</td><td>${partner.active}</td>`;
-            partnerTableBody.appendChild(row);
         });
     }
 });

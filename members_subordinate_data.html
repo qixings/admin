@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="member-subordinate.css">
 </head>
 
 <body>
     <div class="container">
         <aside class="sidebar">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html">Home</a></li>
                 <li><a href="partners.html">Partners</a></li>
                 <li><a href="my_promotion.html">My Promotion</a></li>
                 <li class="has-submenu">
@@ -80,13 +81,186 @@
                         </a>
                     </div>
                 </div>
-            </header>
 
-            <div style="text-align: center;"><h2>The page is Under Maintenence</h2></div>
+                <div class="header-title"> <h2>Members Subordinate Data</h2></div>
+            </header>
+            <div class="member-search">
+                <!-- Search Section -->
+                <div class="search-section">
+                    <div>
+                    <label for="memberIdInput">Search Member</label>
+                    <input type="text" id="memberIdInput" placeholder="Enter Member ID">
+                    <button onclick="searchMember()">Search</button>
+                    <label for="phoneNumberInpu">Search Phone</label>
+                    <input type="text" id="phoneNumberInput" placeholder="Enter Phone Number">
+                    <button onclick="searchByPhone()">Search</button>
+                </div>
+
+                    <div>
+                        <!-- Ban User Button -->
+                        <button id="banUserButton" onclick="showBanPopup()">Ban User</button>
+                    </div>
+                </div>
+
+
+
+
+                <section class="member-subordinate">
+
+
+                    <div class="member-details">
+
+                        <div class="account-details">
+                            <div class="info-box">
+                                <h3>Account</h3>
+                                <table>
+                                    <tr>
+                                        <td>Member ID</td>
+                                        <td><span id="memberId"></span></td>
+                                        <td>Superior ID</td>
+                                        <td><span id="superiorId"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registered No.</td>
+                                        <td><span id="registeredNo"></span></td>
+                                        <td>No. of Subordinates</td>
+                                        <td><span id="subordinateCount"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Balance</td>
+                                        <td><span id="userBalance"></span></td>
+                                        <td>Last Login</td>
+                                        <td><span id="lastLogin"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registration Time</td>
+                                        <td><span id="registrationTime"></span></td>
+                                        <td>XP Points</td>
+                                        <td><span id="xpPoints"></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="transaction-details">
+                            <div class="info-box">
+                                <h3>Transactions</h3>
+                                <table>
+                                    <tr>
+                                        <td>Recharge/Times</td>
+                                        <td><span id="rechargeTimes"></span></td>
+                                        <td>Withdrawal/Times</td>
+                                        <td><span id="withdrawalTimes"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bonus/Times</td>
+                                        <td><span id="bonusTimes"></span></td>
+                                        <td>Gift Code/Times</td>
+                                        <td><span id="giftCodeTimes"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st Recharge</td>
+                                        <td><span id="firstRecharge"></span></td>
+                                        <td>2nd Recharge</td>
+                                        <td><span id="secondRecharge"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3rd Recharge</td>
+                                        <td><span id="thirdRecharge"></span></td>
+                                        <td>Wager</td>
+                                        <td><span id="wager"></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="other-details">
+                            <div class="info-box">
+                                <h3>Others</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Last 3 Deposits</th>
+                                            <th>Last 3 Withdrawals</th>
+                                            <th>Last 3 Logins</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span id="last3Deposits1"></span></td>
+                                            <td><span id="last3Withdrawals1"></span></td>
+                                            <td><span id="last3Logins1"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span id="last3Deposits2"></span></td>
+                                            <td><span id="last3Withdrawals2"></span></td>
+                                            <td><span id="last3Logins2"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span id="last3Deposits3"></span></td>
+                                            <td><span id="last3Withdrawals3"></span></td>
+                                            <td><span id="last3Logins3"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <div class="subordinate-list">
+                        <!-- Subordinate List -->
+                        <div class="subordinate-list">
+                            <h3>Subordinate List</h3>
+                            <table id="subordinatesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Member ID</th>
+                                        <th>Superior ID</th>
+                                        <th>Relative Level</th>
+                                        <th>Subordinates</th>
+                                        <th>Bank A/C</th>
+                                        <th>Deposit</th>
+                                        <th>Withdrawals</th>
+                                        <th>Balance</th>
+                                        <th>Last Login</th>
+                                        <th>Joining Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Subordinate data rows will be dynamically inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="pagination-controls">
+                        <span id="rowInfo"></span>
+                        <select id="rowsPerPage" onchange="changeRowsPerPage()">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="all">All</option>
+                        </select>
+                    </div>
+
+
+            </div>
+
+
+
+
+            </section>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="admin.js"></script>
+    <script src="member-subordinate.js"></script>
 </body>
 
 </html>
